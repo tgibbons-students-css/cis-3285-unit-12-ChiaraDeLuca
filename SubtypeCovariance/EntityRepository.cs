@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SubtypeCovariance
 {
-    public class EntityRepository
-    {
-        public virtual Entity GetByID(Guid id)
-        {
-            return new Entity(id);
-        }
-    }
+    public interface IEntityRepository<IEntity>
+    
+        where IEntity : Entity
+            {
+                TEntity GetbyID(Guid id);
+            }
+    
 }
